@@ -14,5 +14,7 @@
     require_once "../utils/render.php";
     require_once "../routing/routes.class.php";
 
+    error_reporting(E_ALL ^ E_NOTICE);  
+
     session_start();
 
