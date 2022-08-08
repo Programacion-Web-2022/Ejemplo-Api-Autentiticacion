@@ -63,6 +63,7 @@ require "../utils/autoload.php";
                 $p = new UsuarioModelo();
                 $p -> Id = $fila['id'];
                 $p -> Nombre = $fila['username'];
+                $p -> Password = $fila['password'];
                 array_push($resultado,$p);
             }
             return $resultado;

@@ -15,6 +15,5 @@
     require_once "../routing/routes.class.php";
 
     error_reporting(E_ALL ^ E_NOTICE);  
-
-    session_start();
+    header("Content-Type:application/json");
 

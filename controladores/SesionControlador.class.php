@@ -7,18 +7,23 @@
             $u -> Nombre = $context['post']['usuario'];
             $u -> Password = $context['post']['password'];
             if($u -> Autenticar($u -> Nombre, $u -> Password)){
-                SessionCreate("autenticado",true);
-                SessionCreate("nombreUsuario", $u -> Nombre);
-                header("Location: /");
-
+                $respuesta = [
+                    "Resultado" => "true",
+                    "Mensaje" => "Credenciales validas"
+                ];
+                echo json_encode($respuesta);
+                return;
             }
-            render("login",["error" => true]);
+
+            $respuesta = [
+                "Resultado" => "false",
+                "Mensaje" => "Credenciales invalidas"
+            ];
+            echo json_encode($respuesta);
+            return;
         }
 
-        public static function CerrarSesion($context){
-            session_destroy();
-            header("Location:/login");
-        }
+        
 
        
     }
